@@ -1,0 +1,5 @@
+iverilog -o dff.vvp dff.v && \
+gcc -Wno-unused-parameter `iverilog-vpi --cflags` \
+-fPIC -shared -o test.vpi usw_vpi.c test.c \
+`iverilog-vpi --ldflags` && \
+vvp -M . -m test dff.vvp # -lxt2
